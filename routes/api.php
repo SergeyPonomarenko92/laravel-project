@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/nesting/{i}', [RecursionController::class, 'show']);
+Route::get('/fibonacci/{index}', [RecursionController::class, 'fibonacci']);

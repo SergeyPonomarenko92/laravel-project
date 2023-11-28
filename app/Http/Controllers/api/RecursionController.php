@@ -7,26 +7,6 @@ use Illuminate\Http\Request;
 
 class RecursionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -45,26 +25,24 @@ class RecursionController extends Controller
         return $recursive;
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function fibonacci($index)
     {
-        //
+        $result = $this->calculateFibonacci($index);
+
+        return response()->json([
+            'index' => $index,
+            'fibonacci_number' => $result
+        ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    private function calculateFibonacci($index)
     {
-        //
+        if ($index <= 1) {
+            return $index;
+        } else {
+            return $this->calculateFibonacci($index - 1) + $this->calculateFibonacci($index - 2);
+        }
     }
+
 }
