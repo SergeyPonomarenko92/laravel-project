@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::pattern('pattern', '^[ryg]+$');
-Route::pattern('index', '[1-9]');
+Route::pattern('index', '[1-9]+$');
 Route::get('/nesting/{i}', [RecursionController::class, 'show']);
 Route::get('/fibonacci/{index}', [RecursionController::class, 'fibonacci']);
 Route::get('/apples/{pattern}/{index}', [RecursionController::class, 'apples']);
