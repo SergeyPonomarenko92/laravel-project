@@ -50,8 +50,8 @@ services:
         image: phpmyadmin
         container_name: phpmyadmin
         environment:
-           - PMA_HOST=mysql
-           - PMA_PORT=3306
+            - PMA_HOST=mysql
+            - PMA_PORT=3306
         restart: always
         ports:
             - 9091:80
